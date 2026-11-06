@@ -1,0 +1,133 @@
+/**
+ * Hospital IT Desk — Responsive Styles
+ * Desktop, Tablet, Mobile (390px, 320px)
+ */
+
+/* Tablet & Mobile Breakpoints */
+@media (max-width: 991.98px) {
+  #app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    z-index: 1060;
+  }
+
+  #app-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .btn-sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 31, 58, 0.6);
+    z-index: 1055;
+    backdrop-filter: blur(2px);
+  }
+
+  .sidebar-backdrop.show {
+    display: block;
+  }
+
+  #content-area {
+    padding: 1rem;
+  }
+
+  .topbar-right .user-name {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #app-topbar {
+    padding: 0 1rem;
+    height: 56px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .page-header .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .page-header .action-buttons .btn {
+    flex: 1 1 auto;
+  }
+
+  .filter-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-toolbar .filter-search-input {
+    width: 100%;
+    min-width: 100% !important;
+  }
+
+  .filter-toolbar .form-select,
+  .filter-toolbar .form-control {
+    width: 100%;
+  }
+
+  .kpi-card {
+    padding: 1rem;
+  }
+  .kpi-value {
+    font-size: 1.4rem;
+  }
+
+  .modal-custom-dialog {
+    margin: 0.5rem;
+    max-height: 94vh;
+  }
+}
+
+/* Very Small Screens (320px - 390px) */
+@media (max-width: 390px) {
+  body {
+    font-size: 13.5px;
+  }
+
+  #content-area {
+    padding: 0.75rem;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .kpi-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    font-size: 0.825rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .storage-badge span {
+    display: none;
+  }
+}
+

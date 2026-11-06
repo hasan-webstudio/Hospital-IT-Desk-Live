@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital IT Desk — Hospital IT Management & Support Portal</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+
+  <!-- Local Vendor CSS -->
+  <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+
+  <!-- Application Custom Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Demo Banner -->
+  <div class="demo-banner">
+    <div class="d-flex align-items-center gap-2">
+      <span class="demo-banner-badge">DEMO DATA</span>
+      <span>হাসপাতাল আইটি ডেস্ক — ক্লায়েন্ট-সাইড প্রোটোটাইপ। সকল তথ্য আপনার ব্রাউজারের IndexedDB-তে সংরক্ষিত রয়েছে।</span>
+    </div>
+    <div class="d-none d-md-block">
+      <a href="#/settings" class="text-dark fw-bold text-decoration-underline">ব্যাকআপ ডাউনলোড করুন</a>
+    </div>
+  </div>
+
+  <!-- Main Application Container -->
+  <div id="app-container">
+    <!-- Sidebar Navigation Drawer -->
+    <nav id="app-sidebar" aria-label="Sidebar Navigation"></nav>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-wrapper">
+      <!-- Top Navigation Bar -->
+      <header id="app-topbar"></header>
+
+      <!-- Dynamic Page Content Area -->
+      <main id="content-area" role="main">
+        <div class="d-flex justify-content-center align-items-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">লোড হচ্ছে...</span>
+          </div>
+        </div>
+      </main>
+
+      <!-- App Footer -->
+      <footer id="app-footer">
+        <div>
+          <strong>Hospital IT Desk</strong> &copy; 2026. Hospital IT Management & Support Portal.
+        </div>
+        <div class="d-flex gap-3">
+          <span><i class="bi bi-shield-check text-success"></i> No Server / No Tracker</span>
+          <a href="#/settings" class="text-muted text-decoration-none"><i class="bi bi-gear"></i> Settings</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Local Vendor Scripts -->
+  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/chartjs/chart.umd.min.js"></script>
+
+  <!-- Main ES Module Bootstrap -->
+  <script type="module" src="./assets/js/app.js"></script>
+
+  <!-- Browser Security Check & Startup Watchdog Guard (Plain Vanilla JS, No Modules) -->
+  <script>
+    (function() {
+      // 1. Detect file: protocol (Direct double-click on Windows / local file system)
+      if (window.location.protocol === 'file:') {
+        var contentArea = document.getElementById('content-area');
+        if (contentArea) {
+          contentArea.innerHTML = [
+            '<div class="container-fluid py-5">',
+            '  <div class="card border-warning shadow-sm mx-auto" style="max-width: 760px;">',
+            '    <div class="card-header bg-warning text-dark fw-bold d-flex align-items-center gap-2 py-3">',
+            '      <i class="bi bi-exclamation-triangle-fill fs-4"></i>',
+            '      <span class="fs-6">ব্রাউজার সিকিউরিটি নোটিশ — Local Server অথবা Web Hosting প্রয়োজন</span>',
+            '    </div>',
+            '    <div class="card-body p-4">',
+            '      <p class="mb-3">',
+            '        আপনি অ্যাপ্লিকেশনটি সরাসরি লোকাল ফাইল সিস্টেম (<code>file:///</code>) থেকে ওপেন করেছেন। আধুনিক ব্রাউজারগুলো (Google Chrome, Microsoft Edge) নিরাপত্তার জন্য <code>file://</code> প্রোটোকলে জাভাস্ক্রিপ্ট <strong>ES Modules</strong> ব্লক করে রাখে (CORS Origin Restriction)।',
+            '      </p>',
+            '      <div class="alert alert-light border mb-3">',
+            '        <h6 class="fw-bold text-primary mb-2"><i class="bi bi-play-circle-fill text-success me-1"></i> কীভাবে সহজে চালু করবেন:</h6>',
+            '        <ol class="mb-0 ps-3 small text-secondary">',
+            '          <li class="mb-2"><strong>VS Code Live Server (সবচেয়ে সহজ):</strong> VS Code-এ ফোল্ডারটি ওপেন করে <code>index.html</code> ফাইলের উপর রাইট-ক্লিক করে <em>"Open with Live Server"</em> চাপুন।</li>',
+            '          <li class="mb-2"><strong>Node.js / npx:</strong> টার্মিনালে রান করুন: <code>npx serve</code> অথবা <code>npx http-server</code></li>',
+            '          <li class="mb-2"><strong>Python Simple Server:</strong> টার্মিনালে রান করুন: <code>python -m http.server 8080</code> এবং ব্রাউজারে যান <code>http://localhost:8080</code></li>',
+            '          <li><strong>GitHub Pages:</strong> রিপোজিটরিটি গিটহাবে পুশ করলেই এটি সরাসরি গিটহাব পেজেসে লাইভ চলবে (কোনো সার্ভার কনফিগারেশন ছাড়াই)।</li>',
+            '        </ol>',
+            '      </div>',
+            '      <div class="text-muted small">',
+            '        <i class="bi bi-info-circle me-1"></i> এটি একটি 100% ক্লায়েন্ট-সাইড স্ট্যাটিক সিঙ্গেল পেজ অ্যাপ্লিকেশন (SPA)। কোনো ব্যাকএন্ড ডাটাবেজ (PHP/MySQL) প্রয়োজন নেই।',
+            '      </div>',
+            '    </div>',
+            '  </div>',
+            '</div>'
+          ].join('\n');
+        }
+        return;
+      }
+
+      // 2. Watchdog Timer: Triggers if app doesn't finish bootstrap within 5 seconds
+      window.__HITD_WATCHDOG_TIMEOUT__ = setTimeout(function() {
+        if (!window.__HITD_BOOTSTRAP_COMPLETE__) {
+          var contentArea = document.getElementById('content-area');
+          if (contentArea) {
+            contentArea.innerHTML = [
+              '<div class="container-fluid py-5">',
+              '  <div class="card border-danger shadow-sm mx-auto" style="max-width: 680px;">',
+              '    <div class="card-header bg-danger text-white fw-bold d-flex align-items-center gap-2 py-3">',
+              '      <i class="bi bi-hourglass-split fs-4"></i>',
+              '      <span class="fs-6">সিস্টেম লোডিং টাইমআউট (Startup Timeout)</span>',
+              '    </div>',
+              '    <div class="card-body p-4">',
+              '      <p class="mb-3 text-secondary">',
+              '        অ্যাপ্লিকেশনটি লোড হতে প্রত্যাশার চেয়ে বেশি সময় নিচ্ছে। এটি সাধারণত ব্রাউজারের কোনো স্ক্রিপ্ট ব্লকার, IndexedDB পারমিশন লক অথবা ক্যাশ ত্রুটির কারণে হতে পারে।',
+              '      </p>',
+              '      <div class="d-flex gap-2 mb-3">',
+              '        <button type="button" class="btn btn-primary btn-sm" onclick="window.location.reload()">',
+              '          <i class="bi bi-arrow-clockwise me-1"></i> পুনরায় লোড করুন (Retry)',
+              '        </button>',
+              '        <button type="button" class="btn btn-outline-danger btn-sm" onclick="if(confirm(\'ব্রাউজারের IndexedDB ডেটাবেজ রিসেট করতে চান?\')){ indexedDB.deleteDatabase(\'HospitalITDeskDB\'); window.location.reload(); }">',
+              '          <i class="bi bi-trash3 me-1"></i> ডেটাবেজ রিসেট ও রিলোড',
+              '        </button>',
+              '      </div>',
+              '      <div class="p-2 bg-light rounded text-muted small">',
+              '        <strong>টিপ:</strong> ব্রাউজারের ডেভেলপার টুলস কনসোল (F12 -> Console) চেক করে বিস্তারিত ত্রুটি দেখতে পারেন।',
+              '      </div>',
+              '    </div>',
+              '  </div>',
+              '</div>'
+            ].join('\n');
+          }
+        }
+      }, 5000);
+    })();
+  </script>
+
+</body>
+</html>
+
